@@ -10,42 +10,61 @@ def project(pname):
 
     path=pname+"/"+"tools"
     os.mkdir(path)
-    print("create tools")
+    print("create"+path)
 
     path=pname+"/"+"library"
     os.mkdir(path)
-    print("create library")
+    print("create"+path)
 
     path=pname+"/"+"docs"
     os.mkdir(path)
-    print("create docs")
+    print("create"+path)
     
     path=pname+"/"+"requirements.txt"
     f = open(path, "w")
     f.write( "#requirements.txt \n")
     f.close()
-    print("requirements.txt")
+    print("create"+path)
 
     path=pname+"/"+"readme.txt"
     f = open(path, "w")
     f.write( "#readme.txt \n")
     f.close()
-    print("readme.md")
+    print("create"+path)
+
+    path=pname+"/"+"start.py"
+    f = open(path, "w")
+    f.write( 'print("hllo world!") \n')
+    f.close()
+    print("create"+path)
+
 
 def help():
-    print("hello world!")
+    a="""
+    startproject    
+        -create project name
+        note:
+            startproject name test
+    library 
+        -create library 
+    """
+    print(a)
 
 def main(cmd):
-    #lcmd=len(cmd)
-    #print(str(sys.argv))
-    #print(len(sys.argv))   
-    if cmd[1]=='startproject':
-        pname=cmd[2]
-        project(pname)
-    if cmd[1]=='lib':
-        lib()
-    if cmd[1]=='h' or cmd[1] == 'help':
-        help()
+    lcmd=len(cmd)
+    print(str(sys.argv))
+    print(len(sys.argv)) 
+    if lcmd >1:  
+        if cmd[1]=='startproject':
+            if lcmd ==3:
+                pname=cmd[2]
+                project(pname)
+
+            elif cmd[1]=='library':
+                lib()
+
+        elif cmd[1]=='h' or cmd[1] == 'help':
+            help()
     else:
         help()
 
