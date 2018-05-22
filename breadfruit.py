@@ -15,6 +15,10 @@ def project(pname):
     path=pname+"/"+"library"
     os.mkdir(path)
     print("create"+path)
+    fname=path+"/__init__.py"
+    f=os.open(fname,'w')
+    f.write('#init labrary')
+    f.close()
 
     path=pname+"/"+"docs"
     os.mkdir(path)
